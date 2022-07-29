@@ -1,0 +1,113 @@
+﻿@model UnitTestExample.Models.ViewModels.ContactVM
+
+@{
+    if (Model.Id.HasValue)
+        ViewData["Title"] = "Update Contact";
+    else
+        ViewData["Title"] = "Add New Contact";
+}
+<div class="text-center">
+    <h1 class="display-4">Contact</h1>
+</div>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">@ViewData["Title"]<a class="btn btn-danger float-end" href="~/">Back</a></h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <form id="contact" novalidate class="needs-validation mb-0">
+                        <div class="card-body">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                        @if (Model.Id.HasValue)
+                                        {
+                                            <input asp-for="Id" type="hidden" />
+                                        }
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <fieldset class="border p-4">
+                                        <legend class="float-none w-auto px-2">Contact Details</legend>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group mb-3">
+                                                    <label asp-for="Name">@Html.DisplayNameFor(m => m.Name)</label>
+                                                    <input asp-for="Name" class="form-control" placeholder="@Html.DisplayNameFor(m => m.Name)" />
+                                                    <span asp-validation-for="Name" class="text-danger"></span>
+                                                </div>
+                                                <div class="form-group my-3">
+                                                    <label asp-for="JobTitle">@Html.DisplayNameFor(m => m.JobTitle)</label>
+                                                    <input asp-for="JobTitle" class="form-control" placeholder="@Html.DisplayNameFor(m => m.JobTitle)" />
+                                                    <span asp-validation-for="JobTitle" class="text-danger"></span>
+                                                </div>
+                                                <div class="form-group my-3">
+                                                    <label asp-for="CompanyId">@Html.DisplayNameFor(m => m.CompanyId)</label>
+                                                    @Html.DropDownListFor(m => m.CompanyId, Model.CompanyList, "Select a Company", new { @class = "form-control" })
+                                                    <span asp-validation-for="CompanyId" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group mb-3">
+                                                    <label asp-for="Address">@Html.DisplayNameFor(m => m.Address)</label>
+                                                    <input asp-for="Address" class="form-control" placeholder="@Html.DisplayNameFor(m => m.Address)" />
+                                                    <span asp-validation-for="Address" class="text-danger"></span>
+                                                </div>
+                                                <div class="form-group my-3">
+                                                    <label asp-for="Phone">@Html.DisplayNameFor(m => m.Phone)</label>
+                                                    <input asp-for="Phone" class="form-control" placeholder="@Html.DisplayNameFor(m => m.Phone)" />
+                                                    <span asp-validation-for="Phone" class="text-danger"></span>
+                                                </div>
+                                                <div class="form-group my-3">
+                                                    <label asp-for="Email">@Html.DisplayNameFor(m => m.Email)</label>
+                                                    <input asp-for="Email" class="form-control" placeholder="@Html.DisplayNameFor(m => m.Email)" />
+                                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group mb-3">
+                                                    <label asp-for="LastDateContacted">@Html.DisplayNameFor(m => m.LastDateContacted)</label>
+                                                    <input asp-for="LastDateContacted" class="form-control" placeholder="@Html.DisplayNameFor(m => m.LastDateContacted)" />
+                                                    <span asp-validation-for="LastDateContacted" class="text-danger"></span>
+                                                </div>
+                                                <div class="form-group mu-3">
+                                                    <label asp-for="Comments">@Html.DisplayNameFor(m => m.Comments)</label>
+                                                    <textarea asp-for="Comments" class="form-control" placeholder="@Html.DisplayNameFor(m => m.Comments)" style="height: 116px">@Model.Comments</textarea>
+                                                    <span asp-validation-for="Comments" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 text-end">
+                                                <button type="button" class="btn btn-success" onclick="Confirmation();">Save</button>
+                                                <a href="~/" class="btn btn-danger">Cancel</a>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<partial name="_ConfirmationPartial" />
+@section Styles {
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css" type="text/css" />
+}
+@section Scripts {
+<partial name="_ValidationScriptsPartial" />
+<!-- Bootstrap DatePicker -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js" type="text/javascript"></script>
+<!-- Bootstrap DatePicker -->
+
+<script src="~/js/contactUpsert.js" asp-append-version="true"></script>
+
+}

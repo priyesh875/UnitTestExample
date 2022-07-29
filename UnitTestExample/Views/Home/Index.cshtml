@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<section class="content">
+
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Contacts <a class="btn btn-danger float-end" href="~/Contact/new">Create New Contect</a></h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body table-responsive">
+            <table id="contact" class="table table-striped text-nowrap table-hover  dt-responsive nowrap" style="width:100%">
+                <thead>
+                    <tr>
+                        <th data-priority="1">Name (Job Title)</th>
+                        <th>Company</th>
+                        <th>Phone</th>
+                        <th>Address</th>
+                        <th>Email</th>
+                        <th class="no-search no-sort">Last Date Contacted</th>
+                        <th class="no-search no-sort" data-priority="2"></th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+
+</section>
+
+<partial name="_ConfirmationPartial" />
+@section Scripts {
+<script src="~/js/site.js" asp-append-version="true"></script>
+}
