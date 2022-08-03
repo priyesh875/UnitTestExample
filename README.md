@@ -44,6 +44,3 @@ It will look something like below.
         public DbSet<Testing> Testings { get; set; }
    }
 ```
-
-
-> This is my personal email (priyesh875@gmail.com). Feel free to contact me.
