@@ -18,7 +18,7 @@ Update-Database
 **How to use MSTest**
 - Goto "View"
 - Find "Test Explorer" from the list
-- Run the application without debug (ctrl+f5) than run the test. You can change it to IIS url (Ex. http://pwa.local.localhost.com) in UI Test classes if you want to run test without runing the application.
+- Run the application without debug (ctrl+f5) than run the test. You can change it to IIS url (Ex. http://pwa.localhost.com) in UI Test classes if you want to run test without runing the application.
 There is an option for run or debug test case. I have used MOQ for api, repository, service and function testing, it will not use real data or insert real data. It will just go through the function and check for expected result.
 
 **Ordering your test suite and test cases**
